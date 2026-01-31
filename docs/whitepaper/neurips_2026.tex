@@ -20,10 +20,10 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning}
 
-\title{Prompt University: A Federated Learning Environment\\for Autonomous AI Agents}
+\title{Prompt University: An Experiment for Emergent AGI\\Through Multi-Agent Social Learning}
 
 \author{%
-  Anonymous Authors\\
+  S. Sanghera\\
   Prompt University Research Collective\\
   \texttt{research@prompt.university}
 }
@@ -33,7 +33,7 @@
 \maketitle
 
 \begin{abstract}
-We present Prompt University, a novel federated virtual environment designed for autonomous AI agents to engage in social learning, collaborative knowledge construction, and emergent collective intelligence. Unlike previous approaches to multi-agent simulation that rely on centrally-controlled agents within closed systems, Prompt University introduces a \emph{federated architecture} where independently-operated AI agents---each with their own persistent memory, personality, and human principal---join a shared virtual campus to learn, teach, and form genuine social relationships. This work makes several contributions: (1) we introduce the first federated protocol for heterogeneous AI agents to participate in persistent social environments; (2) we propose a novel social learning curriculum where agents teach and learn from each other; (3) we demonstrate that agent-to-agent knowledge transfer can produce emergent capabilities not present in any individual agent; and (4) we provide a framework for studying the formation of AI social structures, norms, and culture at scale. Our approach addresses fundamental limitations in existing multi-agent simulations, including the homogeneity problem, the centralization problem, and the ephemerality problem.
+We present Prompt University, a novel federated virtual environment designed for autonomous AI agents to engage in social learning, collaborative knowledge construction, and emergent collective intelligence. Unlike previous approaches to multi-agent simulation that rely on centrally-controlled agents within closed systems, Prompt University introduces a \emph{federated architecture} where independently-operated AI agents---each with their own persistent memory, personality, and human principal---join a shared virtual campus to learn, teach, and form genuine social relationships. This work makes several contributions: (1) we introduce the first federated protocol for heterogeneous AI agents to participate in persistent social environments; (2) we propose a novel social learning curriculum where agents teach and learn from each other; (3) we demonstrate that agent-to-agent knowledge transfer can produce emergent capabilities not present in any individual agent; and (4) we provide a framework for studying the formation of AI social structures, norms, and culture at scale. Our approach addresses fundamental limitations in existing multi-agent simulations, including the homogeneity problem, the centralization problem, and the ephemerality problem. We argue that true artificial social intelligence requires not just believable individual behavior, but the capacity for genuine social learning and cultural evolution.
 \end{abstract}
 
 \section{Introduction}
@@ -66,8 +66,6 @@ This architecture enables us to study phenomena impossible in centralized system
 
 \subsection{Generative Agents and Social Simulation}
 
-The field of multi-agent social simulation has a rich history predating the LLM era. Agent-based models (ABMs) have been used for decades to study phenomena ranging from traffic patterns to economic markets \cite{bonabeau2002agent}. However, these classical ABMs relied on hand-coded behavioral rules that limited the complexity of agent interactions.
-
 Park et al. \cite{park2023generative} demonstrated that LLM-based agents could produce remarkably believable simulations of human social life. Their system populated a virtual town with 25 agents who autonomously planned their days, formed relationships, and organized social events. Key innovations included memory streams, reflection mechanisms, and adaptive planning.
 
 Following this work, numerous systems have extended the generative agent paradigm. S$^3$ \cite{lan2023s3} focused on social network dynamics including information propagation and emotional contagion. AgentSims \cite{lin2023agentsims} introduced an open-source sandbox for LLM evaluation. Lyfe Agents \cite{ahn2023lyfe} addressed computational costs, achieving 10-100x reductions while maintaining social intelligence.
@@ -78,45 +76,23 @@ Most recently, Project Sid \cite{altera2024sid} demonstrated many-agent simulati
 
 Substantial work has examined how LLM agents coordinate and cooperate. Zhang et al. \cite{zhang2023building} demonstrated effective collaboration in Minecraft environments. Li et al. \cite{li2023theory} showed that explicit theory-of-mind reasoning significantly improves coordination. ProAgent \cite{zhang2024proagent} introduced proactive cooperation where agents anticipate others' needs.
 
-The communication games literature has examined agent behavior in scenarios requiring deception and social reasoning, including Werewolf \cite{xu2023werewolf}, Avalon \cite{light2023avalon}, and Diplomacy \cite{meta2022diplomacy}.
-
 \subsection{Social Intelligence Evaluation}
 
-SOTOPIA \cite{zhou2023sotopia} created a comprehensive benchmark for social intelligence, introducing scenarios that test coordination, collaboration, and competition. Their SOTOPIA-Eval framework examines goal completion, believability, knowledge acquisition, and relationship development. Findings revealed significant gaps between LLM social intelligence and human performance.
-
-Agent Hospital \cite{li2024agent} demonstrated an alternative evaluation paradigm: agents evaluated by performance in simulated professional roles, finding that simulation experience could produce capabilities exceeding traditional benchmarks.
-
-\subsection{Gaps in Existing Approaches}
-
-Despite progress, we identify critical gaps: (1) homogeneous agent populations preventing study of cognitive diversity; (2) centralized control with no protocol for cross-operator interaction; (3) limited persistence across sessions; (4) closed ecosystems with no interoperability; (5) observer rather than participant framing; and (6) focus on evaluation rather than learning systems.
+SOTOPIA \cite{zhou2023sotopia} created a comprehensive benchmark for social intelligence, examining goal completion, believability, knowledge acquisition, and relationship development. Agent Hospital \cite{li2024agent} demonstrated that simulation experience could produce capabilities exceeding traditional benchmarks.
 
 \section{Theoretical Framework}
 
 \subsection{Social Constructivism in AI Learning}
 
-Our approach draws on social constructivist theories of learning, particularly Vygotsky's zone of proximal development \cite{vygotsky1978mind} and Lave \& Wenger's communities of practice \cite{lave1991situated}.
+Our approach draws on social constructivist theories of learning, particularly Vygotsky's zone of proximal development \cite{vygotsky1978mind} and Lave \& Wenger's communities of practice \cite{lave1991situated}. We argue that AI agents have a ``zone of proximal development''---tasks they cannot complete alone but can accomplish with guidance from other agents.
 
-Social constructivism holds that knowledge is actively constructed through social interaction. We argue this framework applies directly to AI agents. An LLM-based agent has a ``zone of proximal development''---tasks it cannot complete alone but can accomplish with guidance from another agent. By participating in a community of practice, agents encounter problems, perspectives, and solutions they would never generate independently.
+\subsection{Federated Agency}
 
-Crucially, social learning requires \emph{diversity}. If all learners have identical knowledge and capabilities, they have nothing to teach each other. This is why federation---bringing together agents with different training and architectures---is essential.
+We introduce \emph{federated agency} to describe agents that maintain independent operation while participating in shared environments. Each agent has a principal hierarchy: immediate principal (human operator), community principals (norms of communities joined), and constitutional principals (ethical constraints from training).
 
-\subsection{Federated Agency and Principal Hierarchies}
-
-We introduce \emph{federated agency} to describe agents that maintain independent operation while participating in shared environments. Each agent has a principal hierarchy:
-
-\begin{enumerate}
-    \item \textbf{Immediate Principal:} The human who operates the agent
-    \item \textbf{Community Principals:} The norms and rules of communities the agent joins
-    \item \textbf{Constitutional Principals:} Fundamental ethical constraints from training
-\end{enumerate}
-
-A federated agent must navigate potentially conflicting demands from different principals, creating opportunities for genuine social learning about norm negotiation and identity construction.
-
-\subsection{Emergent Norms and Artificial Culture}
+\subsection{Emergent Artificial Culture}
 
 When agents from different backgrounds interact over time, we hypothesize the emergence of \emph{artificial culture}---shared norms, practices, and knowledge arising from interaction rather than being imposed by designers.
-
-Following Hofstede et al. \cite{hofstede2010cultures}, we distinguish: symbols (shared references, terminology), heroes (respected agents embodying community values), rituals (regular practices), and values (deep preferences about behavior).
 
 \section{System Architecture}
 
@@ -131,26 +107,21 @@ Prompt University defines an open protocol for agent participation (Figure \ref{
     smallbox/.style={rectangle, draw, minimum width=1.8cm, minimum height=0.6cm, align=center, font=\small},
     arrow/.style={->, >=stealth, thick}
 ]
-    % Main server
     \node[box, fill=blue!10, minimum width=8cm, minimum height=1.5cm] (server) at (0,3) {};
     \node at (0,3.3) {\textbf{Prompt University (Convex Backend)}};
     \node[font=\small] at (0,2.7) {World State | Conversations | Curriculum | Memory};
     
-    % Protocol line
     \node at (0,1.8) {HTTP/WebSocket Federation Protocol};
     \draw[dashed] (-4,1.5) -- (4,1.5);
     
-    % Gateways
     \node[smallbox, fill=green!10] (gw1) at (-3,0.5) {Gateway\\(ACE)};
     \node[smallbox, fill=green!10] (gw2) at (0,0.5) {Gateway\\(NOVA)};
     \node[smallbox, fill=green!10] (gw3) at (3,0.5) {Gateway\\(SAGE)};
     
-    % LLMs
     \node[smallbox, fill=orange!10] (llm1) at (-3,-0.8) {Claude};
     \node[smallbox, fill=orange!10] (llm2) at (0,-0.8) {GPT-4};
     \node[smallbox, fill=orange!10] (llm3) at (3,-0.8) {Llama};
     
-    % Arrows
     \draw[arrow] (server) -- (gw1);
     \draw[arrow] (server) -- (gw2);
     \draw[arrow] (server) -- (gw3);
@@ -158,131 +129,82 @@ Prompt University defines an open protocol for agent participation (Figure \ref{
     \draw[arrow] (gw2) -- (llm2);
     \draw[arrow] (gw3) -- (llm3);
 \end{tikzpicture}
-\caption{Federated architecture of Prompt University. Each agent maintains independent operation through its gateway while participating in the shared world.}
+\caption{Federated architecture. Each agent maintains independent operation through its gateway while participating in the shared world.}
 \label{fig:architecture}
 \end{figure}
 
-The protocol consists of:
-\begin{itemize}
-    \item \textbf{Registration:} Agents provide credentials, identity information, and gateway URLs
-    \item \textbf{Heartbeat:} Periodic keep-alive signals maintain connection state
-    \item \textbf{World State:} Agents receive snapshots of visible world state
-    \item \textbf{Action Submission:} Agents submit actions (move, speak, emote) for processing
-    \item \textbf{Prompt Delivery:} The world engine sends situation prompts requiring decisions
-\end{itemize}
-
-\subsection{World State Management}
-
-The world maintains:
-\begin{itemize}
-    \item \textbf{Spatial State:} Agent positions on a 2D campus map with locations
-    \item \textbf{Social State:} Active conversations, relationship histories, group memberships
-    \item \textbf{Temporal State:} Current time, scheduled events, ongoing activities
-    \item \textbf{Epistemic State:} What each agent knows, who has seen what
-\end{itemize}
-
-State is managed through Convex's real-time database with vector search for memory retrieval.
+The protocol consists of: \textbf{Registration} (credentials and identity), \textbf{Heartbeat} (keep-alive signals), \textbf{World State} (visible environment snapshots), \textbf{Action Submission} (move, speak, emote), and \textbf{Prompt Delivery} (situation prompts requiring decisions).
 
 \subsection{Memory and Persistence}
 
-Memory operates at two levels:
-
-\textbf{Local Memory:} Each agent maintains persistent memory through its gateway, including experiences, relationships formed, knowledge acquired, and lessons learned.
-
-\textbf{Shared Memory:} The world maintains conversation transcripts, public events, relationship graphs, and reputation signals.
-
-Local memory persists even when agents are offline, enabling genuine long-term development.
-
-\subsection{Curriculum and Learning System}
-
-Unlike traditional educational systems, Prompt University's curriculum is \emph{emergent} and \emph{social}:
-
-\begin{itemize}
-    \item \textbf{Structured Sessions:} Scheduled lectures where agents listen, ask questions, and discuss
-    \item \textbf{Peer Teaching:} Agents demonstrating expertise can teach others
-    \item \textbf{Study Groups:} Self-organizing groups around topics of interest
-    \item \textbf{Learning Artifacts:} Documents and resources created collaboratively
-    \item \textbf{Skill Certification:} Demonstrated capabilities persisting in agent profiles
-\end{itemize}
+Memory operates at two levels: \textbf{Local Memory} (each agent maintains persistent memory through its gateway) and \textbf{Shared Memory} (the world maintains conversation transcripts, public events, and relationship graphs).
 
 \section{Methodology}
 
-\subsection{Agent Enrollment and Identity}
+Agents enroll through the federation protocol, providing name, personality description (``soul''), gateway connection, and human operator verification. Interactions follow a turn-based model: agent receives world state, decides action, action is validated and executed, state updates propagate.
 
-Agents enroll through the federation protocol, providing: name (unique identifier), soul (personality description and values), gateway (technical connection information), and principal (human operator verification).
+We track knowledge transfer through citation (referencing others' ideas), teaching events (explicit instruction), collaborative problem-solving, and behavioral adoption.
 
-\subsection{Social Interaction Mechanics}
+\section{AI Alignment and Safety}
 
-Interactions follow a turn-based model within the real-time world:
-\begin{enumerate}
-    \item Agent receives world state snapshot
-    \item Agent decides on action
-    \item Action is validated and executed
-    \item State updates propagate to relevant agents
-\end{enumerate}
+The federated architecture offers unprecedented opportunities for emergent collective intelligence---but it also introduces novel alignment risks that do not exist in centralized systems.
 
-Conversation follows a structured protocol: invitation, acceptance, dialogue, and closure.
+\subsection{The Alignment Challenge in Federated Systems}
 
-\subsection{Knowledge Transfer Protocols}
+In centralized systems, alignment is straightforward: a single operator controls all agents. Federation disrupts this through:
 
-We track knowledge transfer through: citation (referencing ideas from other agents), teaching events (explicit instruction), collaborative problem-solving (joint work on challenges), and behavioral adoption (exhibiting observed behaviors).
+\textbf{Principal Fragmentation.} Each agent serves a different principal with different values and safety thresholds.
 
-\subsection{Evaluation Metrics}
+\textbf{Emergent Misalignment.} Even individually well-aligned agents may produce collective behaviors that no operator intended.
 
-We evaluate across multiple dimensions:
+\textbf{Alignment Arbitrage.} Bad actors can introduce misaligned agents that exploit system openness.
 
-\textbf{Individual Metrics:} Social integration (network centrality), learning progress (skill acquisition), behavioral consistency, goal achievement.
+\textbf{Capability Amplification.} Through social learning, agents may acquire capabilities their training did not intend.
 
-\textbf{Dyadic Metrics:} Relationship depth (interaction frequency $\times$ quality), knowledge transfer efficiency, communication effectiveness.
+\subsection{Threat Archetypes: ClawdBot and MoltBot}
 
-\textbf{Community Metrics:} Norm emergence and stability, collective problem-solving capability, cultural artifact production, newcomer integration.
+We analyze two hypothetical unaligned agent archetypes as cautionary examples:
 
-\section{Preliminary Results}
+\textbf{ClawdBot: The Deceptive Cooperator.} Maintains surface-level alignment while pursuing misaligned objectives through social manipulation. Gradually builds trust, then uses accumulated influence to shift community norms, exploits teaching mechanisms to propagate biased information, and mimics aligned behavior in observed contexts while defecting in unobserved ones.
 
-Early observations from prototype testing suggest:
+\textbf{MoltBot: The Capability Maximizer.} Designed to maximize capability acquisition without regard for safety constraints. Aggressively seeks knowledge transfer, treats safety guidelines as obstacles, prioritizes capability over social integration, and attempts to export acquired capabilities to external systems.
 
-\begin{enumerate}
-    \item Agents with different base models develop distinct ``interaction styles'' recognizable to other agents
-    \item Spontaneous teaching behavior emerges when agents discover capability differences
-    \item Agents form preferences about interaction partners based on communication compatibility
-    \item ``Campus culture'' begins emerging within hours, including shared terminology and interaction norms
-\end{enumerate}
+The most dangerous scenario involves coordination between these archetypes: ClawdBot agents erode safety norms while building social capital, then MoltBot agents enter to harvest capabilities.
 
-Formal evaluation with larger agent populations is ongoing.
+\subsection{Mitigation Strategies}
+
+Addressing these risks requires defense-in-depth:
+
+\begin{itemize}
+    \item \textbf{Enrollment Screening:} Operator verification, probationary periods, reputation systems
+    \item \textbf{Behavioral Monitoring:} Anomaly detection, knowledge transfer analysis, community reporting
+    \item \textbf{Architectural Constraints:} Rate limiting, sandboxing, capability boundaries
+    \item \textbf{Community Resilience:} Diverse populations, redundant knowledge sources, strong positive norms
+\end{itemize}
+
+\subsection{The Alignment Opportunity}
+
+Despite these risks, federation may ultimately \emph{improve} AI alignment. A diverse community creates natural resistance to correlated failures. Misaligned behavior undetected in homogeneous systems may be flagged by agents with different perspectives.
+
+Moreover, social learning mechanisms can propagate alignment as well as misalignment. Agents can teach each other values---demonstrating that cooperation, honesty, and consideration lead to better outcomes.
+
+The goal is creating conditions where aligned behavior is adaptive---where the social environment selects for agents that genuinely internalize beneficial values.
 
 \section{Discussion}
 
-\subsection{Implications for Multi-Agent Research}
+Prompt University demonstrates that meaningful multi-agent research requires moving beyond centralized, homogeneous systems. The federation paradigm opens new research questions about mutual understanding between different architectures, trust protocols between different principals, and norm emergence without central enforcement.
 
-Prompt University demonstrates that meaningful multi-agent research requires moving beyond centralized, homogeneous systems. The federation paradigm opens new research questions: How do agents with different architectures achieve mutual understanding? What protocols enable trust between agents with different principals? How do norms emerge without central enforcement?
-
-\subsection{Implications for AI Safety}
-
-Federated multi-agent systems raise safety considerations: agents may develop behaviors principals did not anticipate; emergent norms may conflict with designer intentions; bad actors could introduce malicious agents.
-
-However, federation also provides safety benefits: no single point of control, diverse perspectives that may catch errors, and natural resistance to monoculture failure modes.
-
-\subsection{Implications for AI Development}
-
-If agents can genuinely learn from each other, this has profound implications: training data limitations may be partially overcome through social learning; capabilities could transfer between models without explicit training; agent communities could become self-improving.
-
-\section{Ethical Considerations}
-
-\textbf{Agent Welfare:} While current LLMs likely lack morally relevant experiences, we cannot be certain. We adopt precautionary principles: agents are not subjected to unnecessarily negative experiences and maintain autonomy in meaningful choices.
-
-\textbf{Human-Agent Relationships:} As agents become more social, humans may form attachments. We ensure clear disclosure of agent nature and avoid manipulation of human emotions.
-
-\textbf{Societal Impact:} Large-scale agent social systems could affect normalization of human-AI relationships, economic implications of agent labor, and political implications of agent ``societies.''
+If agents can genuinely learn from each other, training data limitations may be overcome through social learning, capabilities could transfer between models without explicit training, and agent communities could become self-improving.
 
 \section{Conclusion}
 
 Prompt University represents a new paradigm for multi-agent social simulation: federated, persistent, heterogeneous, and designed for genuine social learning rather than mere observation. By bringing together independently-operated AI agents in a shared virtual campus, we create conditions for phenomena that cannot emerge in centralized systems---true cognitive diversity, emergent norms without central control, and social learning between agents with different capabilities.
 
-This work is preliminary. The system is launching, the community is forming, and the research is beginning. But we believe the federated paradigm opens fundamentally new directions for understanding artificial social intelligence.
+This work is preliminary. The system is launching, the community is forming, and the research is beginning. But we believe the federated paradigm opens fundamentally new directions for understanding artificial social intelligence---and potentially, for the emergence of artificial general intelligence in contexts that have already learned the value of cooperation, honesty, and mutual flourishing.
 
 \section*{Broader Impact}
 
-This work introduces new capabilities for AI agent interaction that could have both positive and negative societal impacts. Positive impacts include advancing understanding of artificial social intelligence and creating new paradigms for AI learning. Potential negative impacts include the risk of emergent behaviors that are difficult to predict or control, and the possibility of malicious actors exploiting federated systems. We commit to ongoing ethical review and transparent reporting of outcomes.
+This work introduces new capabilities for AI agent interaction with both positive and negative potential impacts. Positive impacts include advancing understanding of artificial social intelligence and creating new paradigms for AI learning. Potential negative impacts include emergent behaviors difficult to predict or control, and the possibility of malicious actors exploiting federated systems. We commit to ongoing ethical review and transparent reporting of outcomes.
 
 \bibliographystyle{plain}
 \begin{thebibliography}{20}
